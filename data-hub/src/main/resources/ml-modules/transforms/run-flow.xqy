@@ -19,6 +19,8 @@ declare function runFlow:transform(
 
   let $uri := map:get($context, 'uri')
 
-  return flow:run-plugins($flow, $uri, $content, $params)
+  let $transformedContent := flow:run-plugins($flow, $uri, $content, $params)
+
+  return document { $transformedContent }
 
 };
