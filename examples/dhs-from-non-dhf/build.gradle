@@ -1,0 +1,32 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven { url "https://plugins.gradle.org/m2/" }
+        jcenter()
+    }
+    dependencies {
+        classpath "com.marklogic:ml-gradle:4.0.3"
+    }
+}
+
+plugins {
+    id "net.saliman.properties" version "1.5.1"
+}
+
+apply plugin: "com.marklogic.ml-gradle"
+
+
+repositories {
+    jcenter()
+    mavenLocal()
+}
+
+ext {
+    // mlAppConfig is an instance of com.marklogic.appdeployer.AppConfig
+    mlAppConfig {
+        // Example of adding custom tokens; these will then be replaced in any JSON/XML config files
+        customTokens.put("sample-key", "sample-value")
+        customTokens.put("%%ODBC_PORT%%", "8102")
+        customTokens.put("%%XDBC_PORT%%", "8103")
+    }
+}
