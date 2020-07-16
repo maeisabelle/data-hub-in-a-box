@@ -25,8 +25,6 @@ ext {
     // mlAppConfig is an instance of com.marklogic.appdeployer.AppConfig
     mlAppConfig {
         // Example of adding custom tokens; these will then be replaced in any JSON/XML config files
-        customTokens.put("sample-key", "sample-value")
-        customTokens.put("%%ODBC_PORT%%", "8102")
-        customTokens.put("%%XDBC_PORT%%", "8103")
+        //customTokens.put("sample-key", "sample-value")
     }
 }
